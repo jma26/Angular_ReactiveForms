@@ -1,0 +1,24 @@
+<form [formGroup]='registration' (ngSubmit)='register()'>
+  <label for='fullName'> Full Name </label>
+  <input type='text' formControlName='fullname' name='fullName' placeholder='Your full name'>
+  <!-- Form validation errors for full name -->
+  <p class='error' *ngIf="registration.get('fullname').hasError('required') && formSubmitAttempt"> Full name is required </p>
+  <!-- End -->
+  <label for='email'> Email Address </label>
+  <input type='email' formControlName='email' name='email' placeholder='Your email address'>
+  <!-- Form validation errors for email -->
+  <p class='error' *ngIf="registration.get('email').hasError('required') && formSubmitAttempt"> Email is required </p>
+  <!-- End -->
+  <label for='password'> Password </label>
+  <input type='password' formControlName='password' name='password' placeholder='Your password'>
+  <!-- Form validation errors for password -->
+  <p class='error' *ngIf="registration.get('password').hasError('required') && formSubmitAttempt"> Password is required </p>
+  <p class='error' *ngIf="registration.get('password').hasError('minLength') && formSubmitAttempt"> Password must be 5 characters minimum </p>
+  <!-- End -->
+  <label for='confirmPassword'> Confirm Password </label>
+  <input type='confirmPassword' formControlName='confirmPassword' name='confirmPassword' placeholder='Confirm password'>
+  <!-- Form validation errors for confirming password -->
+  <p class='error' *ngIf="registration.get('confirmPassword').hasError('required') && formSubmitAttempt"> Password confirmation required </p>
+  <!-- End -->
+  <button type='submit'> Register </button>
+</form>
