@@ -1,14 +1,26 @@
 form {
     display: flex;
     flex-direction: column;
+    border: 2px solid green;
+    width: 350px;
 }
 
 .form-group {
-    width: 400px;
+    width: 350px;
+}
+
+.form-group label {
+    width: 150px;
+    margin-right: 5px;
 }
 
 #submitButton {
     width: 100px;
     border-radius: 10px;
+}
+
+.error {
+    color: red;
+    display: inline;
 }
 

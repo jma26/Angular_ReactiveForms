@@ -27,13 +27,8 @@
     <label for='confirmPassword'> Confirm Password: </label>
     <input type='password' formControlName='confirmPassword' name='confirmPassword' placeholder='Confirm password'>
     <!-- Form validation errors for confirming password -->
-    <p class='error' *ngIf="confirmPassword.invalid && password.dirty"> Password confirmation required </p>
+    <p class='error' *ngIf="confirmPassword.errors.required && confirmPassword.dirty"> Password confirmation required </p>
     <!-- End -->
   </div>
   <button type='submit' id='submitButton'> Register </button>
 </form>
-
-
-
-
-<!-- <p class='error' *ngIf="registration.controls.fullname.dirty && registration.controls.fullname.invalid && formSubmitAttempt"> Full name is required </p> -->
