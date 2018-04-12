@@ -1,0 +1,14 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    width: 400px;
+}
+
+#submitButton {
+    width: 100px;
+    border-radius: 10px;
+}
+

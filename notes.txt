@@ -1,2 +1,4 @@
 1) Import ReactiveFormsModule, FormControl, & FormGroup from @angular/forms in module.ts
 2) Import FormGroup, FormControl, Validators from @angular/forms in component.ts
+
+*** <div class='form-control-feedback'> ----> Group inputs that have multiple form validations 

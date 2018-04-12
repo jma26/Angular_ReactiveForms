@@ -9,17 +9,33 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class AppComponent implements OnInit {
   registration: FormGroup;
   formSubmitAttempt: boolean;
-
-
+  fullname: FormControl;
+  email: FormControl;
+  password: FormControl;
+  confirmPassword: FormControl;
 
   constructor () { }
 
   ngOnInit() {
+    this.createFormControls();
+    this.createForm();
+   }
+
+  //  Create FormControls as part of component
+   createFormControls() {
+    this.fullname = new FormControl("", Validators.required),
+    this.email = new FormControl("", Validators.required),
+    this.password = new FormControl("", [Validators.required, Validators.minLength(5)]),
+    this.confirmPassword = new FormControl("", Validators.required)
+   }
+
+  //  Bind FormControls to FormGroup model as properties
+   createForm() {
     this.registration = new FormGroup({
-      fullname: new FormControl("", Validators.required),
-      email: new FormControl("", Validators.required),
-      password: new FormControl("", [Validators.required, Validators.minLength(5)]),
-      confirmPassword: new FormControl("", Validators.required)
+      fullname: this.fullname,
+      email: this.email,
+      password: this.password,
+      confirmPassword: this.confirmPassword
     })
    }
 
@@ -27,11 +43,12 @@ export class AppComponent implements OnInit {
      this.formSubmitAttempt = true;
      if (this.registration.valid) {
        this.formSubmitAttempt = false;
+       console.log(this.registration);
       //  Obseravable would be set in here
-      console.log(this.registration);
-      console.log(this.registration.controls.fullname);
        console.log('Form successfully submitted');
      } else {
+       console.log(this.registration);
+      // Redirect to 
        console.log('Form unsuccessfully submitted');
      }
    }
